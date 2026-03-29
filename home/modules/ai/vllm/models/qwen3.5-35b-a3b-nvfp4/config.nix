@@ -1,24 +1,23 @@
-# GLM-4.7-Flash — 对话+工具调用（备选，手动启动）
+# Qwen3.5-35B — 对话（默认启动）
 {
-  name = "vllm-glm4-flash";
-  model = "GadflyII/GLM-4.7-Flash-NVFP4";
+  name = "vllm-qwen35-35b-a3b-nvfp4";
+  model = "AxionML/Qwen3.5-35B-A3B-NVFP4";
   port = 8000;
   socat-port = 18000;
   autostart = true;
-  gpu-memory-utilization = 0.78;
+  gpu-memory-utilization = 0.70;
   max-model-len = 32768;
   max-num-seqs = 64;
 
   # Python 依赖版本配置
   pythonDeps = {
-    vllm = "0.18.0";
-    transformers = "5.4.0";  # 通过 override 强制版本
+    vllm = "0.17.1";
   };
 
   extraArgs = [
     "--enable-auto-tool-choice"
-    "--tool-call-parser glm47"
-    "--reasoning-parser glm45"
+    "--tool-call-parser qwen3_coder"
+    "--reasoning-parser qwen3"
     "--enable-prefix-caching"
     "--enable-chunked-prefill"
     "--max-num-batched-tokens 32768"

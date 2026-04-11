@@ -15,6 +15,7 @@ in
 
     ../modules/ai/openclaw
     ../modules/ai/cc
+    ../modules/ai/hermes
 
     ../modules/ide/git
     ../modules/ide/zsh
@@ -36,4 +37,7 @@ in
     (if isDarwin then ../modules/darwin/apps/rime else "")
     (if isDarwin then ../modules/darwin/apps/iterm2 else "")
   ]);
+
+  # Enable hermes-agent for Paperclip integration
+  programs.hermes.enable = true;
 }
